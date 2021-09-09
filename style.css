@@ -1,114 +1,126 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-.burger{
-    display: none;
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #eee;
 }
 
-body{
-    overflow-x: hidden;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background-color: #343a40;
+  height: 10vh;
 }
 
-nav{
-    height: 8vh;
+.header .logo h1 a {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.header .nav__links {
+  display: flex;
+}
+
+.header .nav__links li {
+  list-style: none;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s;
+}
+
+.header .nav__links .nav__link {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.header .nav__links li:hover {
+  background-color: #1098ad;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger .line {
+  height: 2px;
+  width: 30px;
+  background-color: #fff;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    position: relative;
+  }
+  .header .burger {
+    display: block;
+    transition: all 0.3s;
+  }
+  .header .nav__links {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    height: 90vh;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: rgb(123, 255, 0);
+    background-color: #343a40;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 3rem;
+    transform: translateX(-100%);
+    transition: all 0.3s;
+  }
+  .header .nav__links li {
+    margin-bottom: 3rem;
+  }
+  .header .nav__links .nav__link {
+    font-size: 1.6rem;
+  }
+  .header .navBarActive {
+    transform: translateX(0);
+  }
+  .toggle .line {
+    transition: all 0.3s;
+  }
+  .toggle .line__1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .toggle .line__2 {
+    opacity: 0;
+  }
+  .toggle .line__3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  .header .nav__links li:hover {
+    background-color: #343a40;
+  }
+  .header .nav__link {
+    transition: all 0.3s;
+    padding: 0.2rem 1rem;
+  }
+  .header .nav__link:hover {
+    background-color: #1098ad;
+  }
 }
 
-.logo{
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.nav-links{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 40%;
-}
-
-.nav-links li{
-    list-style: none;
-}
-
-.nav-links li a{
-    text-decoration: none;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 20px;
-    transition: 0.3s;
-    padding: 5px 10px;
-}
-
-.nav-links li a:hover{
-    background: #eee;
-    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-    letter-spacing: 1px;
-}
-
-@media only screen and (max-width:830px){
-    .logo{
-        font-size: 15px;
-    }
-    .nav-links{
-        width: 60%;
-    }
-}
-
-@media only screen and (max-width:768px){
-    .nav-links{
-        position: absolute;
-        top: 8vh;
-        right: 0;
-        width: 60%;
-        height: 92vh;
-        background: rgb(123, 255, 0);
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-        transform: translateX(-200%);
-        transition: all 0.5s ease-in;
-    }
-
-    .burger{
-        display: block;
-        z-index: 2;
-    }
-
-    .burger .line-1, .burger .line-2, .burger .line-3{
-        width: 30px;
-        height: 4px;
-        background: black;
-        margin: 4px;
-    }
-
-    .nav-active{
-        /* display: none; */
-        transform: translate(0%);
-    }
-
-    .burger div{
-        transition: all 0.5s ease;
-    }
-
-    .toggle .line-1{
-        transform: rotate(-45deg) translate(-5px,6px);
-    }
-
-    .toggle .line-2{
-        opacity: 0;
-    }
-
-    .toggle .line-3{
-        transform: rotate(45deg) translate(-5px,-6px);
-    }
-
+@media (max-width: 576px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+  .header .logo h1 a {
+    font-size: 1.8rem;
+  }
+  .header .nav__links .nav__link {
+    font-size: 1.4rem;
+  }
 }
